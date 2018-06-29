@@ -30,11 +30,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-	HttpClientModule,
-	HttpClientInMemoryWebApiModule,
-	HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+	HttpClientModule
   ],
   providers: [
 	HeroService,
