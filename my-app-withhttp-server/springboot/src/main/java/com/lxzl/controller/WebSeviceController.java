@@ -1,18 +1,18 @@
 package com.lxzl.controller;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import javax.websocket.server.PathParam;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.yaml.snakeyaml.util.ArrayUtils;
 
 import com.lxzl.bean.Hero;
+
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
 public class WebSeviceController {
@@ -33,11 +33,12 @@ public class WebSeviceController {
 	/**
 	 * @return
 	 */
-	@RequestMapping("/getHeros")
+	@ApiOperation(value="获取Hero列表", notes="获取Hero列表")
+	@GetMapping("/getHeros")
 	public List<Hero> getHeros() {
 		List<Hero> heros = new ArrayList<Hero>();
 		
-		List<String[]> heroArrayList = ArrayUtils.toUnmodifiableList(heroarray);
+		List<String[]> heroArrayList = Arrays.asList(heroarray);
 		
 		heroArrayList.stream().forEach(e->{
 			Hero hero = new Hero();
@@ -54,12 +55,26 @@ public class WebSeviceController {
 	/**
 	 * @return
 	 */
-	@RequestMapping("/getHero/{id}")
+	@ApiOperation(value="获取Hero详细信息", notes="获取Hero详细信息")
+	@ApiImplicitParam(name = "id", value = "HeroID", required = true, dataType = "Integer", paramType = "path")
+	@GetMapping("/getHero/{id}")
 	public Hero getHero(@PathVariable("id") Integer id) {
 
+		String name = "defaultName";
+		
+		List<String[]> heroArrayList = Arrays.asList(heroarray);
+		
+		try {
+			name = heroArrayList
+					.stream()
+					.filter(p -> (Integer.parseInt(p[0]) == id))
+					.collect(Collectors.toList()).get(0)[1];
+		} catch (Exception e) {
+		}
+		
 		Hero hero = new Hero();
 		hero.setId(id);
-		hero.setName("test");
+		hero.setName(name);
 		
 		return hero;
 	}

@@ -1,10 +1,31 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<h1>{{title}}</h1>
+<section class="company-header-area">
+	<div class="company-logo"> Logo </div>
+	<div class="company-header"> 联系方式 : {{tel}}</div>
+</section>
 
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
+<section class="company-nav-area">
+	<nav>
+		<a routerLink="/dashboard">Dashboard</a>
+		<a routerLink="/heroes">Heroes</a>
+	</nav>
+</section>
+
 <router-outlet></router-outlet>
-<app-messages></app-messages>
+
+<section class="company-footer-area row">
+	<div class="base-info-area col-sm-3">
+		企业基本信息区域
+	</div>
+	<div class="base-info-area col-sm-3">
+		企业基本信息区域
+	</div>
+	<div class="base-info-area col-sm-3">
+		企业基本信息区域
+	</div>
+	<div class="base-info-area col-sm-3">
+		企业基本信息区域
+	</div>
+</section>
+
