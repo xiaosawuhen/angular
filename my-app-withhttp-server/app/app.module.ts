@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -48,7 +50,8 @@ import { ProductService } from './service/product.service';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-	HttpClientModule
+	HttpClientModule,
+	CarouselModule.forRoot()
   ],
   providers: [
 	HeroService,

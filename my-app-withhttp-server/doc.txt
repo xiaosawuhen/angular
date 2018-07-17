@@ -1,0 +1,13 @@
+
+ng serve --host 10.247.236.249 --port 8081 --open
+
+http://10.247.236.249:8081/dashboard
+http://10.247.236.249:8080/getHeros
+
+
+ng serve --host 10.225.81.210 --port 8081 --open
+
+http://10.225.81.210:8081/dashboard
+http://10.225.81.210:8080/getHeros
+
+http://localhost:8080/swagger-ui.html
