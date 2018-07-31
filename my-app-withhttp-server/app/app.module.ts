@@ -25,8 +25,10 @@ import { EmployeeDetailComponent } from './component/employee-detail/employee-de
 
 import { HeroService } from './service/hero.service';
 import { MessageService } from './service/message.service';
-import { InMemoryDataService }  from './service/in-memory-data.service';
+import { InMemoryDataService } from './service/in-memory-data.service';
 import { ProductService } from './service/product.service';
+import { HeaderComponent } from './component/header/header.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 
 @NgModule({
@@ -44,20 +46,22 @@ import { ProductService } from './service/product.service';
     ProductsComponent,
     ProductDetailComponent,
     EmployeesComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-	HttpClientModule,
-	CarouselModule.forRoot()
+    HttpClientModule,
+    CarouselModule.forRoot()
   ],
   providers: [
-	HeroService,
-	MessageService,
-	ProductService,
-	InMemoryDataService
+    HeroService,
+    MessageService,
+    ProductService,
+    InMemoryDataService
   ],
   bootstrap: [AppComponent]
 })

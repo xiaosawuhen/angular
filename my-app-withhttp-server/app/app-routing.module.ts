@@ -6,10 +6,12 @@ import { DashboardComponent }   from './component/dashboard/dashboard.component'
 import { HeroDetailComponent } from './component/hero-detail/hero-detail.component';
 import { ProductsComponent } from './component/products/products.component';
 import { ProductDetailComponent } from './component/product-detail/product-detail.component';
+import { LoginComponent } from './component/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'hero/:id', component: HeroDetailComponent },
@@ -18,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-	imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
